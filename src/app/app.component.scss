@@ -1,0 +1,17 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header-img{
+  width: 250px;
+  align-self: center;
+}
+
+.description{
+  text-align: center;
+  font-family: 'Gabriela';
+}
