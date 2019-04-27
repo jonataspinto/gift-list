@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ContatoService } from '../shared/contato.service';
-import { ContatoDataService } from '../shared/contato-data.service';
-import { Contato } from '../shared/contato';
+import { ContatoService } from '../../services/items.service';
+import { ContatoDataService } from '../../services/contato-data.service';
+import { Contato } from '../../models/contato';
 
 @Component({
   selector: 'app-list',
@@ -10,12 +10,17 @@ import { Contato } from '../shared/contato';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  contatos: Observable<any>;
+  items: Observable<any>;
 
   constructor(private contatoService: ContatoService, private contatoDataService: ContatoDataService) { }
 
   ngOnInit() {
-    this.contatos = this.contatoService.getAll();
+   this.list()
+  }
+
+  async list(){
+    this.items = await this.contatoService.getAll();
+    console.log("LIST - ", this.items)
   }
 
   delete(key: string){

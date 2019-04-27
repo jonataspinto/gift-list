@@ -9,14 +9,18 @@ import { environment } from '../environments/environment';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { EditComponent } from './contatos/edit/edit.component';
-import { ListComponent } from './contatos/list/list.component';
+import { HomeComponent } from './containers/home/home.component';
+import { ListComponent } from './shared/list/list.component';
+import { EditComponent } from './shared/edit/edit.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditComponent,
-    ListComponent
+    ListComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

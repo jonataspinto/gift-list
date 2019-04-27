@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Contato } from '../shared/contato';
-import { ContatoService } from '../shared/contato.service';
-import { ContatoDataService } from '../shared/contato-data.service';
+import { Contato } from '../../models/contato';
+import { ContatoService } from '../../services/items.service';
+import { ContatoDataService } from '../../services/contato-data.service';
 
 
 @Component({
@@ -32,7 +32,7 @@ export class EditComponent implements OnInit {
       this.contato = new Contato();
       this.key = "";
       if(data.contato && data.key) {
-        this.contato.nome = data.contato.nome;
+        this.contato.name = data.contato.name;
         this.contato.telefone = data.contato.telefone;
         this.key = data.key;
       }

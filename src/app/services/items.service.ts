@@ -1,7 +1,7 @@
 import {Injectable } from '@angular/core';
-import { Contato } from './contato';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
+import { Contato } from '../models/contato';
 
 @Injectable({
     providedIn: 'root'
@@ -25,11 +25,14 @@ export class ContatoService {
     }
 
     getAll(){
-        return this.db.list('contato')
+        return this.db.list('items')
         .snapshotChanges()
         .pipe(
             map(changes => {
-                return changes.map(c => ({ key: c.payload.key, ...c.payload.val()}));
+                return changes.map(c => {
+                  console.log(c.payload.val())
+                  return ({ key: c.payload.key, ...c.payload.val()})
+                });
             })
         );
     }

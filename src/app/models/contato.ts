@@ -1,5 +1,5 @@
 export class Contato {
-    nome: string = '';
+    name: string = '';
     telefone: string = '';
     item: string = '';
 }
