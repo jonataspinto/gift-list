@@ -2,23 +2,24 @@ import {Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
 import { Contato } from '../models/contato';
+import { Item } from '../models/item';
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class ContatoService {
+export class ItemService {
     constructor(private db: AngularFireDatabase){ }
 
-    insert(contato: Contato){
-        this.db.list('contato').push(contato)
+    insert(item: Item){
+        this.db.list('items').push(item)
             .then((result: any) => {
                 console.log(result.key);
             });
     }
 
-    update(contato: Contato, key: string){
-        this.db.list('contato').update(key, contato)
+    update(item: Item, key: string){
+        this.db.list('contato').update(key, item)
             .catch((error: any) => {
                 console.log(error);
             });

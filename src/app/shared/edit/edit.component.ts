@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Contato } from '../../models/contato';
-import { ContatoService } from '../../services/items.service';
+import { ItemService } from '../../services/items.service';
 import { ContatoDataService } from '../../services/contato-data.service';
+import { Item } from 'src/app/models/item';
+import { ItemDataService } from 'src/app/services/item-data.service';
 
 
 @Component({
@@ -10,10 +11,10 @@ import { ContatoDataService } from '../../services/contato-data.service';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  contato: Contato
+  item: Item
   key: string = '';
 
-  constructor(private contatoService: ContatoService, private contatoDataService: ContatoDataService) { }
+  constructor(private itemService: ItemService, private itemDataService: ItemDataService) { }
 
   ngOnInit() {
     this.loadContato()
@@ -21,19 +22,19 @@ export class EditComponent implements OnInit {
   }
 
   cancelar(){
-    this.contato = new Contato();
-    this.contatoDataService.changeContato(this.contato, "")
+    this.item = new Item();
+    this.itemDataService.changeItem(this.item, "")
   }
 
   loadContato(){
-    this.contato = new Contato();
-    this.contatoDataService.currentContato.subscribe( data => {
+    this.item = new Item();
+    this.itemDataService.currentItem.subscribe( data => {
       console.log(data)
-      this.contato = new Contato();
+      this.item = new Item();
       this.key = "";
-      if(data.contato && data.key) {
-        this.contato.name = data.contato.name;
-        this.contato.telefone = data.contato.telefone;
+      if(data.item && data.key) {
+        this.item.name = data.item.name;
+        this.item.imgSrc = data.item.imgSrc;
         this.key = data.key;
       }
     })
@@ -41,12 +42,12 @@ export class EditComponent implements OnInit {
 
   onSubmit(){
     if(this.key){
-      this.contatoService.update(this.contato, this.key)
+      this.itemService.update(this.item, this.key)
     }else{
-      this.contatoService.insert(this.contato);
+      this.itemService.insert(this.item);
     }
 
-    this.contato = new Contato();
+    this.item = new Item();
   }
 
 }

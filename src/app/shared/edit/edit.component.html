@@ -1,7 +1,9 @@
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label>Item</label>
-    <input type="text" class="form-control" [(ngModel)]="contato.item" name="nome"/>
+    <label>Nome do Produto</label>
+    <input type="text" class="form-control" [(ngModel)]="item.name" name="nome"/>
+    <label>Imagem URL</label>
+    <input type="text" class="form-control" [(ngModel)]="item.imgSrc" name="nome"/>
   </div>
 
   <button type="submit" class="btn btn-primary">Salvar</button>
