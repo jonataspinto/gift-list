@@ -1,1 +1,33 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.img-container{
+  width: 100%;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card{
+  border-radius: 10px;
+  width: 270px;
+}
+
+.card-title{
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  text-align: center;
+  margin: 12px;
+}
+
+.card-footer{
+  background-color: #58bdc5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button{
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+  }
+}

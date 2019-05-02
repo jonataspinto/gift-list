@@ -1,14 +1,19 @@
-<div class="card mt-2" *ngFor="let item of items | async">
-  <div class="card-body">
-    <img [src]="item.imgSrc" alt="">
-    <h5 class="card-title">{{item.name}}</h5>
-    <!-- <input type="text" name="name" id="name" [(ngModel)]="contato.nome"> -->
-  </div>
-  <div class="card-footer">
-    <button type="button" class="btn btn-default" (click)="edit(contato, contato.key)">Editar</button>
-    <!-- <button type="button" class="btn btn-danger ml-2" (click)="delete(contato.key)">Excluir</button> -->
-  </div>
+<div class="flex-full">
+
+    <div *ngFor="let item of items | async">
+        <div class="card mt-2">
+          <div class="card-body">
+            <div class="img-container" [ngStyle]="{'background-image':' url(' + item.imgSrc + ')'}"></div>
+            <!-- <img class="img-item" [src]="item.imgSrc" alt=""> -->
+            <h5 class="card-title">{{item.name}}</h5>
+            <!-- <input type="text" name="name" id="name" [(ngModel)]="contato.nome"> -->
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-default" (click)="edit(contato, contato.key)">
+              {{ item.assigned ? 'ASSINADO': 'QUERO DAR ESSE'}}
+            </button>
+            <!-- <button type="button" class="btn btn-danger ml-2" (click)="delete(contato.key)">Excluir</button> -->
+          </div>
+        </div>
+      </div>
 </div>
-
-
-
