@@ -21,6 +21,19 @@
   margin-top: 12px;
 }
 
+.close{
+  font-family: 'Lucida Sans';
+  font-size: 2em;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-position: center;
+  background-image: url("../../../assets/cancel.svg")
+}
+
 .card-footer{
   background-color: #58bdc5;
   display: flex;

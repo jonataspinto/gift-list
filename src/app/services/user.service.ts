@@ -1,17 +1,24 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+  public user = new Subject<string>()
 
-  getUser(){
-    return localStorage.getItem("userName")
+  constructor() {
+    this.user.next(this.getUser())
   }
 
-  setUser(userName){
-    localStorage.setItem("userName", userName)
+  getUser(){
+    return localStorage.getItem("name")
+  }
+
+  setUser({name, dateBirth}){
+    localStorage.setItem("name", name)
+    localStorage.setItem("dateBirth", dateBirth)
+    this.user.next(this.getUser())
   }
 }

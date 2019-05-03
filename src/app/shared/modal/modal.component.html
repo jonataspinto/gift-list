@@ -1,13 +1,13 @@
-<div class="fullScreen">
+<div class="fullScreen" *ngIf="!isUser">
   <div class="container">
     <div class="img-container" ></div>
     <p>
-      Oi, precisamos de algumas informações suas:
+     Oi {{isUser}}, precisamos de algumas informações suas:
     </p>
     <label for="name">Qual é o seu nome?</label>
-    <input type="text" name="name">
+    <input #name type="text" name="name">
     <label for="dateBirth">Quando você nasceu?</label>
-    <input type="date" name="dateBirth" id="dateBirth">
-    <button>Salvar</button>
+    <input #dateBirth type="date" name="dateBirth" id="dateBirth">
+    <button (click)="save(name.value, dateBirth.value)">Salvar</button>
   </div>
 </div>

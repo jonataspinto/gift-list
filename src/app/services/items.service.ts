@@ -13,13 +13,10 @@ export class ItemService {
 
     insert(item: Item){
         this.db.list('items').push(item)
-            .then((result: any) => {
-                console.log(result.key);
-            });
     }
 
-    update(item: Item, key: string){
-        this.db.list('contato').update(key, item)
+    update(item: Item){
+        this.db.list('items').update(item.key, item)
             .catch((error: any) => {
                 console.log(error);
             });
@@ -30,10 +27,7 @@ export class ItemService {
         .snapshotChanges()
         .pipe(
             map(changes => {
-                return changes.map(c => {
-                  console.log(c.payload.val())
-                  return ({ key: c.payload.key, ...c.payload.val()})
-                });
+                return changes.map(c => ({ key: c.payload.key, ...c.payload.val()}));
             })
         );
     }
