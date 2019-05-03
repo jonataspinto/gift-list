@@ -1,0 +1,72 @@
+.img-container{
+  height: 160px;
+  width: 160px;
+  margin-top: -80px;
+  border-radius: 80px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../../assets/profile.jpeg");
+  border: #fff solid 5px;
+  -webkit-box-shadow: 0px 4px 8px 1px rgba(0,0,0,0.18);
+  -moz-box-shadow: 0px 4px 8px 1px rgba(0,0,0,0.18);
+  box-shadow: 0px 4px 8px 1px rgba(0,0,0,0.18);
+}
+
+p{
+  font-family: 'Gabriela';
+  font-size: 1.3em;
+}
+
+button{
+  font-family: 'Gabriela';
+  margin-top: 30px;
+  width: 150px;
+  height: 40px;
+  background-color: #58bdc5;
+  color: #fff;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  // border-color: #58bdc5;
+  font-size: 1.1em;
+}
+
+input{
+  width: 80%;
+  height: 40px;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(189, 189, 189);
+  font-size: 1.1em;
+}
+
+label{
+  margin: 20px 0 10px 0;
+  font-family: 'Gabriela';
+  font-size: 1.1em;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  width: 80vw;
+  max-width: 400px;
+  height: 70vh;
+  max-height: 600px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.fullScreen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0, .8);
+  z-index: 2;
+}

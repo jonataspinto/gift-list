@@ -13,6 +13,7 @@ import { HomeComponent } from './containers/home/home.component';
 import { ListComponent } from './shared/list/list.component';
 import { EditComponent } from './shared/edit/edit.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { ModalComponent } from './shared/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HeaderComponent } from './shared/header/header.component';
     EditComponent,
     ListComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
