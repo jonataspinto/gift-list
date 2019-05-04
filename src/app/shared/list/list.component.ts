@@ -12,11 +12,14 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListComponent implements OnInit {
   items: Observable<any>;
+  user
 
   constructor(private userService: UserService, private itemService: ItemService, private itemDataService: ItemDataService) { }
 
   ngOnInit() {
    this.list()
+   this.userService.user.subscribe(user => this.user = user)
+   this.userService.user.next(this.userService.getUser())
   }
 
   async list(){

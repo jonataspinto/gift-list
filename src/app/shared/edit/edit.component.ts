@@ -42,7 +42,7 @@ export class EditComponent implements OnInit {
 
   onSubmit(){
     if(this.key){
-      this.itemService.update(this.item, this.key)
+      this.itemService.update(this.item)
     }else{
       this.itemService.insert(this.item);
     }
