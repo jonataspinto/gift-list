@@ -9,7 +9,21 @@ export class UserService {
   public user = new Subject<string>()
 
   constructor() {
-    this.user.next(this.getUser())
+    this.updateUser();
+    }
+
+  logout(){
+    localStorage.removeItem("name");
+    localStorage.removeItem("dateBirth");
+  }
+
+  updateUser(){
+    const user = {
+      name: localStorage.getItem("name"),
+      dateBirth: localStorage.getItem("dateBirth")
+    }
+    
+    this.user.next()
   }
 
   getUser(){
