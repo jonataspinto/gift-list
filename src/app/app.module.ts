@@ -14,6 +14,7 @@ import { ListComponent } from './shared/list/list.component';
 import { EditComponent } from './shared/edit/edit.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { ModalComponent } from './shared/modal/modal.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ModalComponent } from './shared/modal/modal.component';
     ListComponent,
     HomeComponent,
     HeaderComponent,
-    ModalComponent
+    ModalComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

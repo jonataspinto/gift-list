@@ -1,0 +1,16 @@
+nav {
+  background-color: #58BDC5;
+  padding: 10px 0;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  span {
+    color: #fff;
+    font-family: 'Lucida Sans';
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 35px;
+  }
+}
