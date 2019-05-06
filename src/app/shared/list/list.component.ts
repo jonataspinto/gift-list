@@ -4,6 +4,8 @@ import { ItemService } from 'src/app/services/items.service';
 import { ItemDataService } from 'src/app/services/item-data.service';
 import { Item } from 'src/app/models/item';
 import { UserService } from 'src/app/services/user.service';
+import { Friend } from 'src/app/models/friend';
+import { isEmpty } from '../../helpers/common';
 
 @Component({
   selector: 'app-list',
@@ -22,8 +24,9 @@ export class ListComponent implements OnInit {
    this.userService.user.next(this.userService.getUser())
   }
 
-  async list(){
-    this.items = await this.itemService.getAll();
+  list(){
+    this.items = this.itemService.getAll();
+    this.items.subscribe(console.log)
   }
 
   delete(key: string){
@@ -34,8 +37,17 @@ export class ListComponent implements OnInit {
     const assignedItem = {...item, assigned: this.userService.getUser()}
     this.itemService.update(assignedItem);
   }
+
   unassign(item: Item){
-    const unassignedItem = {...item, assigned: ""}
+    const unassignedItem = {...item, assigned: new Friend()}
     this.itemService.update(unassignedItem);
+  }
+
+  validUser(item){
+    return item.assigned.name === this.user.name && item.assigned.dateBirth === this.user.dateBirth
+  }
+
+  isAssigned(item: Item){
+    return !isEmpty(item.assigned)
   }
 }

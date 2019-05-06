@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { isEmpty } from './../../helpers/common'
 
 @Component({
   selector: 'app-modal',
@@ -10,10 +11,10 @@ export class ModalComponent implements OnInit {
 
   constructor(private userService: UserService) {   }
 
-  public isUser = "";
+  public isUser = false;
 
   ngOnInit() {
-    this.userService.user.subscribe(res=>this.isUser=res)
+    this.userService.user.subscribe(res=>this.isUser=!isEmpty(res))
     this.userService.user.next(this.userService.getUser())
   }
 

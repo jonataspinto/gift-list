@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Friend } from '../models/friend';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  public user = new Subject<string>()
+  public user = new Subject<Friend>()
 
   constructor() {
     this.updateUser();
@@ -15,19 +16,24 @@ export class UserService {
   logout(){
     localStorage.removeItem("name");
     localStorage.removeItem("dateBirth");
+    this.updateUser()
   }
 
   updateUser(){
     const user = {
-      name: localStorage.getItem("name"),
-      dateBirth: localStorage.getItem("dateBirth")
+      name: localStorage.getItem("name") || "",
+      dateBirth: localStorage.getItem("dateBirth") || ""
     }
-    
-    this.user.next()
+
+    this.user.next(user)
   }
 
   getUser(){
-    return localStorage.getItem("name")
+    const user = {
+      name: localStorage.getItem("name") || "",
+      dateBirth: localStorage.getItem("dateBirth") || ""
+    }
+    return user
   }
 
   setUser({name, dateBirth}){

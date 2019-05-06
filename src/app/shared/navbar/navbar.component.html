@@ -1,3 +1,12 @@
 <nav (click)="toggleNav()">
-  <span (click)="logout()">Sair</span>
+    <span>
+       Olá, {{user && user.name}}
+    </span>
+  <!-- <span (click)="logout()">
+    Sair &nbsp;
+    <i class="material-icons">
+      backspace
+    </i>
+  </span> -->
+  <img (click)="logout()" class="logout" src="assets/sign-out-alt-solid.svg" alt="">
 </nav>
