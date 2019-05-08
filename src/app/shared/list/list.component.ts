@@ -42,16 +42,4 @@ export class ListComponent implements OnInit {
     const unassignedItem = {...item, assigned: new Friend()}
     this.itemService.update(unassignedItem);
   }
-
-  validUser(item){
-    if(!item.assigned.name)
-    return false
-    return item.assigned.name.toUpperCase() === this.user.name.toUpperCase() && item.assigned.dateBirth === this.user.dateBirth
-  }
-
-  isAssigned(item: Item){
-    if(!item.assigned.name)
-    return false
-    return true
-  }
 }

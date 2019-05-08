@@ -3,13 +3,19 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
 import { Contato } from '../models/contato';
 import { Item } from '../models/item';
+import { UserService } from './user.service';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class ItemService {
-    constructor(private db: AngularFireDatabase){ }
+  user
+
+    constructor(private db: AngularFireDatabase, private userService: UserService){
+      this.userService.user.subscribe(user => this.user = user)
+
+    }
 
     insert(item: Item){
         this.db.list('items').push(item)
@@ -27,9 +33,26 @@ export class ItemService {
         .snapshotChanges()
         .pipe(
             map(changes => {
-                return changes.map(c => ({ key: c.payload.key, ...c.payload.val()}));
+                return changes.map(c => ({
+                  key: c.payload.key,
+                  ...c.payload.val(),
+                  isAssigned: this.isAssigned(c.payload.val()),
+                  isValid: this.isValid(c.payload.val()),
+                }));
             })
         );
+    }
+
+    isValid(item){
+      if(!item.assigned.name)
+      return false
+      return item.assigned.name.toUpperCase() === this.user.name.toUpperCase() && item.assigned.dateBirth === this.user.dateBirth
+    }
+
+    isAssigned(item){
+      if(!item.assigned.name)
+      return false
+      return true
     }
 
     delete(key: string){

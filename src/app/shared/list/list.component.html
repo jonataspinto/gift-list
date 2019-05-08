@@ -11,15 +11,15 @@
           </div>
           <div
             class="card-footer"
-            [ngStyle]="{'background-color': validUser(item) ? '#147077' : isAssigned(item) ? '#c2dee0': null}"
+            [ngStyle]="{'background-color': item.isValid ? '#147077' : item.isAssigned ? '#c2dee0': null}"
             >
             <button
               type="button"
-              [disabled]="isAssigned(item)"
+              [disabled]="item.isAssigned"
               (click)="assign(item)"
               class="btn btn-default"
               >
-              {{ isAssigned(item) ? 'ASSINADO': 'QUERO DAR ESSE'}}
+              {{ item.isAssigned ? 'ASSINADO': 'QUERO DAR ESSE'}}
             </button>
           </div>
         </div>

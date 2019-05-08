@@ -5,4 +5,6 @@ export class Item {
   assigned = new Friend()
   imgSrc: string = ''
   key: string = ''
+  isAssigned: boolean = false
+  isValid: boolean = false
 }
