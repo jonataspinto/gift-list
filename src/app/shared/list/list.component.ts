@@ -44,10 +44,14 @@ export class ListComponent implements OnInit {
   }
 
   validUser(item){
-    return item.assigned.name === this.user.name && item.assigned.dateBirth === this.user.dateBirth
+    if(!item.assigned.name)
+    return false
+    return item.assigned.name.toUpperCase() === this.user.name.toUpperCase() && item.assigned.dateBirth === this.user.dateBirth
   }
 
   isAssigned(item: Item){
-    return !isEmpty(item.assigned)
+    if(!item.assigned.name)
+    return false
+    return true
   }
 }
