@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ItemService } from 'src/app/services/items.service';
 import { ItemDataService } from 'src/app/services/item-data.service';
 import { Item } from 'src/app/models/item';
 import { UserService } from 'src/app/services/user.service';
 import { Friend } from 'src/app/models/friend';
-import { isEmpty } from '../../helpers/common';
 
 @Component({
   selector: 'app-list',
@@ -13,7 +11,8 @@ import { isEmpty } from '../../helpers/common';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  items: Observable<any>;
+  items = [];
+  // items: Observable<any>;
   user
 
   constructor(private userService: UserService, private itemService: ItemService, private itemDataService: ItemDataService) { }
@@ -25,8 +24,12 @@ export class ListComponent implements OnInit {
   }
 
   list(){
-    this.items = this.itemService.getAll();
-    this.items.subscribe(console.log)
+    this.itemService.getAll().subscribe(items => {
+      this.items = items
+      console.log("UPDATE LIST")
+    });
+    // this.items = this.itemService.getAll();
+    // this.items.subscribe(console.log)
   }
 
   delete(key: string){

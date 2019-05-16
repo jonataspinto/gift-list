@@ -29,7 +29,7 @@ export class ItemService {
     }
 
     getAll(){
-        return this.db.list('items')
+        return this.db.list('items', ref => ref.orderByChild('name'))
         .snapshotChanges()
         .pipe(
             map(changes => {
