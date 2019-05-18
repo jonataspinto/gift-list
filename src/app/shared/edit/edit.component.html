@@ -10,3 +10,9 @@
   <button type="button" class="btn btn-warning" (click)="cancelar()">Cancelar</button>
 </form>
 
+<ul *ngIf="items && items.length>0">
+  <li *ngFor="let item of items">
+    {{item && item.name}} - {{item && item.assigned && item.assigned.name}}
+  </li>
+</ul>
+

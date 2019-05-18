@@ -3,6 +3,7 @@ import { ItemService } from '../../services/items.service';
 import { ContatoDataService } from '../../services/contato-data.service';
 import { Item } from 'src/app/models/item';
 import { ItemDataService } from 'src/app/services/item-data.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,13 +14,16 @@ import { ItemDataService } from 'src/app/services/item-data.service';
 export class EditComponent implements OnInit {
   item: Item
   key: string = '';
+  items
 
   constructor(private itemService: ItemService, private itemDataService: ItemDataService) { }
 
   ngOnInit() {
     this.loadContato()
-
-  }
+    this.itemService.getAll().subscribe(items => {
+      console.log(items)
+      this.items = items
+    });  }
 
   cancelar(){
     this.item = new Item();

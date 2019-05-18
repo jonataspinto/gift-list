@@ -14,6 +14,7 @@ export class ItemService {
 
     constructor(private db: AngularFireDatabase, private userService: UserService){
       this.userService.user.subscribe(user => this.user = user)
+      this.userService.user.next(this.userService.getUser())
 
     }
 
@@ -44,7 +45,8 @@ export class ItemService {
     }
 
     isValid(item){
-      if(!item.assigned.name)
+      console.log(item, this.user)
+      if(!item.assigned.name || !item.assigned)
       return false
       return item.assigned.name.toUpperCase() === this.user.name.toUpperCase() && item.assigned.dateBirth === this.user.dateBirth
     }

@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
   list(){
     this.itemService.getAll().subscribe(items => {
       this.items = items
-      console.log("UPDATE LIST")
+      console.log("UPDATE LIST - ", items)
     });
     // this.items = this.itemService.getAll();
     // this.items.subscribe(console.log)
