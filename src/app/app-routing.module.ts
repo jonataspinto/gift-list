@@ -5,7 +5,7 @@ import { ListComponent } from './shared/list/list.component';
 
 const routes: Routes = [
   {component: ListComponent, path: ""},
-  {component: EditComponent, path: "carolina"},
+  {component: EditComponent, path: "add"},
 ];
 
 @NgModule({
