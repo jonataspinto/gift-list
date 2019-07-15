@@ -39,6 +39,7 @@ export class ListComponent implements OnInit {
   assign(item: Item){
     const assignedItem = {...item, assigned: this.userService.getUser()}
     this.itemService.update(assignedItem);
+    console.log(assignedItem)
   }
 
   unassign(item: Item){
