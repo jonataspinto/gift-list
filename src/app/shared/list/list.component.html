@@ -1,26 +1,18 @@
 <div class="flex-full">
-
-    <div *ngFor="let item of items">
-        <div class="card mt-2">
-          <div class="card-body">
-            <span class="close" (click)="unassign(item)" *ngIf="item.isValid"></span>
-            <div class="img-container" [ngStyle]="{'background-image':' url(' + item.imgSrc + ')'}"></div>
-            <!-- <img class="img-item" [src]="item.imgSrc" alt=""> -->
-            <h5 class="card-title">{{item.name}}</h5>
-            <!-- <input type="text" name="name" id="name" [(ngModel)]="contato.nome"> -->
-          </div>
-          <div
-            class="card-footer"
-            >
-            <button
-              type="button"
-              [disabled]="item.isAssigned"
-              (click)="assign(item)"
-              class="btn btn-default"
-              >
-              {{ item.isAssigned ? 'ASSINADO': 'QUERO DAR ESSE'}}
-            </button>
-          </div>
-        </div>
+  <div *ngFor="let item of items">
+    <div class="card mt-2">
+      <div class="card-body">
+        <span class="close" (click)="unassign(item)" *ngIf="item.isValid"></span>
+        <div class="img-container" [ngStyle]="{'background-image':' url(' + item.imgSrc + ')'}"></div>
+        <!-- <img class="img-item" [src]="item.imgSrc" alt=""> -->
+        <h5 class="card-title">{{item.name}}</h5>
+        <!-- <input type="text" name="name" id="name" [(ngModel)]="contato.nome"> -->
       </div>
+      <div class="card-footer">
+        <button  [disabled]="item.isAssigned" (click)="assign(item)" class="btn btn-default">
+          {{ item.isAssigned ? 'ASSINADO': 'QUERO DAR ESSE'}}
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

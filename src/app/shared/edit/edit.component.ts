@@ -54,4 +54,9 @@ export class EditComponent implements OnInit {
     this.item = new Item();
   }
 
+  remove(item){
+    console.log(item)
+    this.itemService.delete(item.key)
+  }
+
 }
