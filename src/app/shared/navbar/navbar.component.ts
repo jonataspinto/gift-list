@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
 
   public navOpened = false;
   public user = new Friend()
+  public rote 
 
   constructor(private userService: UserService) { }
 
@@ -26,6 +27,12 @@ export class NavbarComponent implements OnInit {
   logout(){
    this.userService.logout();
    this.userService.updateUser()
+  }
+
+  router(name){
+    console.log(name)
+    if(this.user.name == "Jonatas" || this.user.name === "Mariana"){
+    this.rote = "add"}
   }
 
 }
