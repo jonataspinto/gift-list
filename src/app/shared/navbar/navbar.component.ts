@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
 
   router(name){
     console.log(name)
-    if(this.user.name == "Jonatas" || this.user.name === "Mariana"){
+    if(this.user.name == "Jonatas" || this.user.name === "Mariana" || this.user.name === "Elias" || this.user.name === "Eliane"){
     this.rote = "add"}
   }
 
